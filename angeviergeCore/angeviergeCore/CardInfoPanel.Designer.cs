@@ -51,9 +51,9 @@ namespace angeviergeCore
             this.panel1.Controls.Add(this.colorAndsortLabel);
             this.panel1.Controls.Add(this.nameLabel);
             this.panel1.Controls.Add(this.cardPic);
-            this.panel1.Location = new System.Drawing.Point(0, 3);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(212, 66);
+            this.panel1.Size = new System.Drawing.Size(212, 64);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
@@ -109,9 +109,9 @@ namespace angeviergeCore
             this.cardPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cardPic.Image = ((System.Drawing.Image)(resources.GetObject("cardPic.Image")));
             this.cardPic.InitialImage = null;
-            this.cardPic.Location = new System.Drawing.Point(3, 0);
+            this.cardPic.Location = new System.Drawing.Point(3, 1);
             this.cardPic.Name = "cardPic";
-            this.cardPic.Size = new System.Drawing.Size(45, 63);
+            this.cardPic.Size = new System.Drawing.Size(45, 62);
             this.cardPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.cardPic.TabIndex = 0;
             this.cardPic.TabStop = false;
@@ -123,7 +123,7 @@ namespace angeviergeCore
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel1);
             this.Name = "CardInfoPanel";
-            this.Size = new System.Drawing.Size(212, 66);
+            this.Size = new System.Drawing.Size(214, 68);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cardPic)).EndInit();

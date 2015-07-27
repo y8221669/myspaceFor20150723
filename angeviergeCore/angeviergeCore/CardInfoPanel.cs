@@ -46,23 +46,51 @@ namespace angeviergeCore
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+            if (!showtag)
+            {
+                ControlPaint.DrawBorder(e.Graphics,
+                     this.panel1.ClientRectangle,
+                     Color.Transparent,
+                     1,
+                     ButtonBorderStyle.Solid,
+                     Color.Transparent,
+                     1,
+                     ButtonBorderStyle.Solid,
+                     Color.Transparent,
+                     1,
+                     ButtonBorderStyle.Solid,
+                     Color.Transparent,
+                     1,
+                     ButtonBorderStyle.Solid);
+            }else {
+                ControlPaint.DrawBorder(e.Graphics,
+                                   this.panel1.ClientRectangle,
+                                   Color.White,
+                                   1,
+                                   ButtonBorderStyle.Solid,
+                                   Color.White,
+                                   1,
+                                   ButtonBorderStyle.Solid,
+                                   Color.White,
+                                   1,
+                                   ButtonBorderStyle.Solid,
+                                   Color.White,
+                                   1,
+                                   ButtonBorderStyle.Solid);
+            }
+            
         }
 
         private void panel1_MouseEnter(object sender, EventArgs e)
         {
-            if (!showtag) {
-                showtag = true;
-                BackgroundImage = Properties.Resources.bg_av_3;
-            }
+            showtag = true;
+            Refresh();
         }
 
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
-            if (showtag)
-            {
-                showtag = false;
-                BackgroundImage = null;
-            }
+            showtag = false;
+            Refresh();
         }
     }
 }
