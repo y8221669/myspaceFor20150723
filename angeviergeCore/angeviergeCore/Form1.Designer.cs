@@ -51,7 +51,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.singleComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.sortComboBox = new System.Windows.Forms.ComboBox();
+            this.typeComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.levelComboBox = new System.Windows.Forms.ComboBox();
@@ -183,6 +183,7 @@
             this.deckUpsetButton.TabIndex = 6;
             this.deckUpsetButton.Text = "打乱";
             this.deckUpsetButton.UseVisualStyleBackColor = true;
+            this.deckUpsetButton.Click += new System.EventHandler(this.deckUpsetButton_Click);
             // 
             // exitDeckButton
             // 
@@ -246,7 +247,7 @@
             this.searchPanel.Controls.Add(this.label6);
             this.searchPanel.Controls.Add(this.singleComboBox);
             this.searchPanel.Controls.Add(this.label5);
-            this.searchPanel.Controls.Add(this.sortComboBox);
+            this.searchPanel.Controls.Add(this.typeComboBox);
             this.searchPanel.Controls.Add(this.label4);
             this.searchPanel.Controls.Add(this.label3);
             this.searchPanel.Controls.Add(this.levelComboBox);
@@ -287,11 +288,6 @@
             // 
             this.singleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.singleComboBox.FormattingEnabled = true;
-            this.singleComboBox.Items.AddRange(new object[] {
-            "Ω",
-            "Σ",
-            "∀∀",
-            "无"});
             this.singleComboBox.Location = new System.Drawing.Point(245, 46);
             this.singleComboBox.Name = "singleComboBox";
             this.singleComboBox.Size = new System.Drawing.Size(95, 20);
@@ -306,17 +302,14 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "边框：";
             // 
-            // sortComboBox
+            // typeComboBox
             // 
-            this.sortComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.sortComboBox.FormattingEnabled = true;
-            this.sortComboBox.Items.AddRange(new object[] {
-            "PG",
-            "AC"});
-            this.sortComboBox.Location = new System.Drawing.Point(80, 46);
-            this.sortComboBox.Name = "sortComboBox";
-            this.sortComboBox.Size = new System.Drawing.Size(95, 20);
-            this.sortComboBox.TabIndex = 5;
+            this.typeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.typeComboBox.FormattingEnabled = true;
+            this.typeComboBox.Location = new System.Drawing.Point(80, 46);
+            this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(95, 20);
+            this.typeComboBox.TabIndex = 5;
             // 
             // label4
             // 
@@ -346,7 +339,7 @@
             "2",
             "3",
             "4",
-            "Boost"});
+            "5"});
             this.levelComboBox.Location = new System.Drawing.Point(245, 12);
             this.levelComboBox.Name = "levelComboBox";
             this.levelComboBox.Size = new System.Drawing.Size(96, 20);
@@ -354,14 +347,9 @@
             // 
             // colorComboBox
             // 
+            this.colorComboBox.DisplayMember = "1";
             this.colorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.colorComboBox.FormattingEnabled = true;
-            this.colorComboBox.Items.AddRange(new object[] {
-            "红",
-            "蓝",
-            "黑",
-            "白",
-            "绿"});
             this.colorComboBox.Location = new System.Drawing.Point(80, 13);
             this.colorComboBox.Name = "colorComboBox";
             this.colorComboBox.Size = new System.Drawing.Size(95, 20);
@@ -378,13 +366,16 @@
             // 
             // searchFlowLayoutPanel
             // 
+            this.searchFlowLayoutPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchFlowLayoutPanel.AutoScroll = true;
+            this.searchFlowLayoutPanel.AutoScrollMinSize = new System.Drawing.Size(100, 0);
             this.searchFlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.searchFlowLayoutPanel.BackgroundImage = global::angeviergeCore.Properties.Resources.bg_av_3;
-            this.searchFlowLayoutPanel.Location = new System.Drawing.Point(792, 166);
+            this.searchFlowLayoutPanel.Location = new System.Drawing.Point(781, 166);
             this.searchFlowLayoutPanel.Name = "searchFlowLayoutPanel";
-            this.searchFlowLayoutPanel.Size = new System.Drawing.Size(220, 470);
+            this.searchFlowLayoutPanel.Size = new System.Drawing.Size(231, 470);
             this.searchFlowLayoutPanel.TabIndex = 7;
+            this.searchFlowLayoutPanel.Scroll += new System.Windows.Forms.ScrollEventHandler(this.searchFlowLayoutPanel_Scroll);
             this.searchFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchFlowLayoutPanel_Paint);
             // 
             // searchEndPanel
@@ -392,7 +383,7 @@
             this.searchEndPanel.BackColor = System.Drawing.Color.Transparent;
             this.searchEndPanel.BackgroundImage = global::angeviergeCore.Properties.Resources.bg_av_3;
             this.searchEndPanel.Controls.Add(this.searchSumLabel);
-            this.searchEndPanel.Location = new System.Drawing.Point(792, 138);
+            this.searchEndPanel.Location = new System.Drawing.Point(781, 138);
             this.searchEndPanel.Name = "searchEndPanel";
             this.searchEndPanel.Size = new System.Drawing.Size(114, 22);
             this.searchEndPanel.TabIndex = 8;
@@ -479,7 +470,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox singleComboBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox sortComboBox;
+        private System.Windows.Forms.ComboBox typeComboBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox levelComboBox;

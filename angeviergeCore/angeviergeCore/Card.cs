@@ -16,10 +16,24 @@ namespace angeviergeCore
         public int power;
         public int grand;
         public int demage;
-        public cardColor color;
-        public cardType type;
-        public cardSingle single;
+        public int color;
+        public int type;
+        public int single;
         public string introduction;
         public string effect;
+        public string number;
+        public Card(string name,int level,int power,int grand,int demage,int color,int type,int single,string introduction,string effect,string number) {
+            this.name = name;
+            this.level = level;
+            this.power = power;
+            this.grand = grand;
+            this.demage = demage;
+            this.color = color;
+            this.type = type;
+            this.single = single;
+            this.introduction = introduction;
+            this.effect = effect;
+            this.number = number;
+            }
     }
 }

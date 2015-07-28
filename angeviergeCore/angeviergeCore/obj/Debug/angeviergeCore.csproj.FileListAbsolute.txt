@@ -21,3 +21,16 @@ E:\projects\angeviergeCore\angeviergeCore\bin\Debug\System.Data.SQLite.EF6.xml
 E:\projects\angeviergeCore\angeviergeCore\bin\Debug\System.Data.SQLite.Linq.pdb
 E:\projects\angeviergeCore\angeviergeCore\bin\Debug\System.Data.SQLite.Linq.xml
 E:\projects\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.CardInfoPanel.resources
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\bin\Debug\angeviergeCore.exe.config
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\bin\Debug\angeviergeCore.exe
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\bin\Debug\angeviergeCore.pdb
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\bin\Debug\EnvDTE.dll
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\bin\Debug\stdole.dll
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.csprojResolveAssemblyReference.cache
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.CardInfoPanel.resources
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.MainForm.resources
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.MenuForm.resources
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.Properties.Resources.resources
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.csproj.GenerateResource.Cache
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.exe
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.pdb

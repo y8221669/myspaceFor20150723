@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace angeviergeCore
 {
-    public partial class CardInfoPanel : UserControl
+    public partial class CardInfoPanel : Panel
     {
         bool showtag = false;
 
@@ -34,10 +34,19 @@ namespace angeviergeCore
         public CardInfoPanel()
         {
             InitializeComponent();
+
             SetControlEnabled(levelLabel, false);
             SetControlEnabled(powerAndDefendLabel, false);
             SetControlEnabled(colorAndsortLabel, false);
             SetControlEnabled(nameLabel, false);
+
+            SetStyle(ControlStyles.UserPaint 
+                | ControlStyles.AllPaintingInWmPaint 
+                | ControlStyles.OptimizedDoubleBuffer 
+                | ControlStyles.ResizeRedraw
+                | ControlStyles.SupportsTransparentBackColor, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
+            this.UpdateStyles();
         }
         private void label3_Click(object sender, EventArgs e)
         {
