@@ -28,21 +28,12 @@ namespace angeviergeCore
         {
 
         }
-
-        private void smallpanel_MouseEnter(object sender, EventArgs e)
-        {
-            showtag = true;
-            Refresh();
-            Mydelegate dg = new Mydelegate(owner.showCardInfo);
-            dg(cardid);
-        }
-
-        private void smallpanel_Paint(object sender, PaintEventArgs e)
+        private void cardpicbox_Paint(object sender, PaintEventArgs e)
         {
             if (!showtag)
             {
                 ControlPaint.DrawBorder(e.Graphics,
-                     this.smallpanel.ClientRectangle,
+                     this.ClientRectangle,
                      Color.Transparent,
                      1,
                      ButtonBorderStyle.Solid,
@@ -59,7 +50,7 @@ namespace angeviergeCore
             else
             {
                 ControlPaint.DrawBorder(e.Graphics,
-                                   this.smallpanel.ClientRectangle,
+                                   this.ClientRectangle,
                                    Color.White,
                                    1,
                                    ButtonBorderStyle.Solid,
@@ -75,13 +66,15 @@ namespace angeviergeCore
             }
         }
 
-        private void smallpanel_MouseLeave(object sender, EventArgs e)
+        private void cardpicbox_MouseEnter(object sender, EventArgs e)
         {
-            showtag = false;
+            showtag = true;
             Refresh();
+            Mydelegate dg = new Mydelegate(owner.showCardInfo);
+            dg(cardid);
         }
 
-        private void smallpanel_MouseDown(object sender, MouseEventArgs e)
+        private void cardpicbox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -89,5 +82,12 @@ namespace angeviergeCore
                 dcd(this);
             }
         }
+
+        private void cardpicbox_MouseLeave(object sender, EventArgs e)
+        {
+            showtag = false;
+            Refresh();
+        }
+
     }
 }

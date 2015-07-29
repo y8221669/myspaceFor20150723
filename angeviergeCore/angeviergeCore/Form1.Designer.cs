@@ -28,13 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.cardFlame = new System.Windows.Forms.PictureBox();
-            this.cardTabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.cardDescriptionText = new System.Windows.Forms.RichTextBox();
-            this.CardNameText = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.deckPanel = new System.Windows.Forms.Panel();
             this.deckCleanButton = new System.Windows.Forms.Button();
             this.deckResetButton = new System.Windows.Forms.Button();
@@ -62,19 +57,25 @@
             this.searchSumLabel = new System.Windows.Forms.Label();
             this.bgpicBox = new System.Windows.Forms.PictureBox();
             this.deckFlowlayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.descriptionPanel = new System.Windows.Forms.Panel();
+            this.descriptionLable = new System.Windows.Forms.Label();
+            this.effectLable = new System.Windows.Forms.Label();
+            this.CardNameText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cardFlame)).BeginInit();
-            this.cardTabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.deckPanel.SuspendLayout();
             this.searchPanel.SuspendLayout();
             this.searchEndPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bgpicBox)).BeginInit();
+            this.descriptionPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // cardFlame
             // 
             this.cardFlame.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cardFlame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cardFlame.BackColor = System.Drawing.Color.Transparent;
+            this.cardFlame.BackgroundImage = global::angeviergeCore.Properties.Resources.bg_av_4;
+            this.cardFlame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cardFlame.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.cardFlame.Location = new System.Drawing.Point(0, 0);
             this.cardFlame.Name = "cardFlame";
             this.cardFlame.Size = new System.Drawing.Size(200, 274);
@@ -82,72 +83,10 @@
             this.cardFlame.TabIndex = 1;
             this.cardFlame.TabStop = false;
             // 
-            // cardTabControl
-            // 
-            this.cardTabControl.Controls.Add(this.tabPage1);
-            this.cardTabControl.Controls.Add(this.tabPage2);
-            this.cardTabControl.Controls.Add(this.tabPage3);
-            this.cardTabControl.Location = new System.Drawing.Point(0, 280);
-            this.cardTabControl.Name = "cardTabControl";
-            this.cardTabControl.SelectedIndex = 0;
-            this.cardTabControl.Size = new System.Drawing.Size(300, 360);
-            this.cardTabControl.TabIndex = 3;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.cardDescriptionText);
-            this.tabPage1.Controls.Add(this.CardNameText);
-            this.tabPage1.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(292, 334);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "卡片信息";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // cardDescriptionText
-            // 
-            this.cardDescriptionText.Font = new System.Drawing.Font("楷体", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.cardDescriptionText.Location = new System.Drawing.Point(8, 54);
-            this.cardDescriptionText.Name = "cardDescriptionText";
-            this.cardDescriptionText.ReadOnly = true;
-            this.cardDescriptionText.Size = new System.Drawing.Size(278, 273);
-            this.cardDescriptionText.TabIndex = 1;
-            this.cardDescriptionText.Text = "";
-            // 
-            // CardNameText
-            // 
-            this.CardNameText.Font = new System.Drawing.Font("楷体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.CardNameText.Location = new System.Drawing.Point(8, 19);
-            this.CardNameText.Name = "CardNameText";
-            this.CardNameText.ReadOnly = true;
-            this.CardNameText.Size = new System.Drawing.Size(278, 29);
-            this.CardNameText.TabIndex = 0;
-            this.CardNameText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(292, 334);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "消息记录";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(292, 334);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "系统设定";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // deckPanel
             // 
-            this.deckPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.deckPanel.BackColor = System.Drawing.Color.LightGray;
+            this.deckPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.deckPanel.Controls.Add(this.deckCleanButton);
             this.deckPanel.Controls.Add(this.deckResetButton);
             this.deckPanel.Controls.Add(this.deckUpsetButton);
@@ -157,14 +96,15 @@
             this.deckPanel.Controls.Add(this.deckNameBox);
             this.deckPanel.Controls.Add(this.deckComboBox);
             this.deckPanel.Controls.Add(this.label1);
-            this.deckPanel.Location = new System.Drawing.Point(339, 12);
+            this.deckPanel.Location = new System.Drawing.Point(339, 4);
             this.deckPanel.Name = "deckPanel";
-            this.deckPanel.Size = new System.Drawing.Size(300, 122);
+            this.deckPanel.Size = new System.Drawing.Size(300, 130);
             this.deckPanel.TabIndex = 4;
             // 
             // deckCleanButton
             // 
-            this.deckCleanButton.Location = new System.Drawing.Point(241, 87);
+            this.deckCleanButton.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.deckCleanButton.Location = new System.Drawing.Point(238, 87);
             this.deckCleanButton.Name = "deckCleanButton";
             this.deckCleanButton.Size = new System.Drawing.Size(55, 23);
             this.deckCleanButton.TabIndex = 8;
@@ -173,7 +113,8 @@
             // 
             // deckResetButton
             // 
-            this.deckResetButton.Location = new System.Drawing.Point(180, 87);
+            this.deckResetButton.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.deckResetButton.Location = new System.Drawing.Point(177, 87);
             this.deckResetButton.Name = "deckResetButton";
             this.deckResetButton.Size = new System.Drawing.Size(55, 23);
             this.deckResetButton.TabIndex = 7;
@@ -183,27 +124,32 @@
             // 
             // deckUpsetButton
             // 
-            this.deckUpsetButton.Location = new System.Drawing.Point(119, 87);
+            this.deckUpsetButton.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.deckUpsetButton.Location = new System.Drawing.Point(116, 87);
             this.deckUpsetButton.Name = "deckUpsetButton";
             this.deckUpsetButton.Size = new System.Drawing.Size(55, 23);
             this.deckUpsetButton.TabIndex = 6;
             this.deckUpsetButton.Text = "打乱";
             this.deckUpsetButton.UseVisualStyleBackColor = true;
+            this.deckUpsetButton.Visible = false;
             this.deckUpsetButton.Click += new System.EventHandler(this.deckUpsetButton_Click);
             // 
             // exitDeckButton
             // 
-            this.exitDeckButton.Location = new System.Drawing.Point(7, 87);
+            this.exitDeckButton.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.exitDeckButton.Location = new System.Drawing.Point(4, 87);
             this.exitDeckButton.Name = "exitDeckButton";
             this.exitDeckButton.Size = new System.Drawing.Size(75, 23);
             this.exitDeckButton.TabIndex = 5;
             this.exitDeckButton.Text = "退出编辑";
             this.exitDeckButton.UseVisualStyleBackColor = true;
+            this.exitDeckButton.Visible = false;
             this.exitDeckButton.Click += new System.EventHandler(this.exitDeckButton_Click);
             // 
             // deckResaveButtom
             // 
-            this.deckResaveButtom.Location = new System.Drawing.Point(222, 39);
+            this.deckResaveButtom.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.deckResaveButtom.Location = new System.Drawing.Point(219, 39);
             this.deckResaveButtom.Name = "deckResaveButtom";
             this.deckResaveButtom.Size = new System.Drawing.Size(75, 23);
             this.deckResaveButtom.TabIndex = 4;
@@ -213,17 +159,19 @@
             // 
             // deckSaveButton
             // 
-            this.deckSaveButton.Location = new System.Drawing.Point(222, 10);
+            this.deckSaveButton.BackColor = System.Drawing.SystemColors.Control;
+            this.deckSaveButton.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.deckSaveButton.Location = new System.Drawing.Point(219, 10);
             this.deckSaveButton.Name = "deckSaveButton";
             this.deckSaveButton.Size = new System.Drawing.Size(75, 23);
             this.deckSaveButton.TabIndex = 3;
             this.deckSaveButton.Text = "保存";
-            this.deckSaveButton.UseVisualStyleBackColor = true;
+            this.deckSaveButton.UseVisualStyleBackColor = false;
             this.deckSaveButton.Click += new System.EventHandler(this.deckSaveButton_Click);
             // 
             // deckNameBox
             // 
-            this.deckNameBox.Location = new System.Drawing.Point(88, 40);
+            this.deckNameBox.Location = new System.Drawing.Point(85, 40);
             this.deckNameBox.Name = "deckNameBox";
             this.deckNameBox.Size = new System.Drawing.Size(121, 21);
             this.deckNameBox.TabIndex = 2;
@@ -232,7 +180,7 @@
             // 
             this.deckComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.deckComboBox.FormattingEnabled = true;
-            this.deckComboBox.Location = new System.Drawing.Point(88, 13);
+            this.deckComboBox.Location = new System.Drawing.Point(85, 13);
             this.deckComboBox.Name = "deckComboBox";
             this.deckComboBox.Size = new System.Drawing.Size(121, 20);
             this.deckComboBox.TabIndex = 1;
@@ -241,7 +189,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 16);
+            this.label1.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(14, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 0;
@@ -250,7 +199,8 @@
             // 
             // searchPanel
             // 
-            this.searchPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.searchPanel.BackColor = System.Drawing.Color.LightGray;
+            this.searchPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.searchPanel.Controls.Add(this.searchButton);
             this.searchPanel.Controls.Add(this.searchKeyText);
             this.searchPanel.Controls.Add(this.label6);
@@ -262,13 +212,14 @@
             this.searchPanel.Controls.Add(this.levelComboBox);
             this.searchPanel.Controls.Add(this.colorComboBox);
             this.searchPanel.Controls.Add(this.label2);
-            this.searchPanel.Location = new System.Drawing.Point(645, 12);
+            this.searchPanel.Location = new System.Drawing.Point(645, 4);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(367, 122);
+            this.searchPanel.Size = new System.Drawing.Size(367, 130);
             this.searchPanel.TabIndex = 5;
             // 
             // searchButton
             // 
+            this.searchButton.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.searchButton.Location = new System.Drawing.Point(265, 75);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
@@ -287,6 +238,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.Location = new System.Drawing.Point(20, 80);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
@@ -305,6 +257,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.Location = new System.Drawing.Point(198, 50);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
@@ -323,6 +276,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.Location = new System.Drawing.Point(32, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
@@ -332,6 +286,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(198, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
@@ -360,6 +315,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(32, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
@@ -373,6 +329,7 @@
             this.searchFlowLayoutPanel.AutoScrollMinSize = new System.Drawing.Size(100, 0);
             this.searchFlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.searchFlowLayoutPanel.BackgroundImage = global::angeviergeCore.Properties.Resources.bg_av_3;
+            this.searchFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.searchFlowLayoutPanel.Location = new System.Drawing.Point(781, 166);
             this.searchFlowLayoutPanel.Name = "searchFlowLayoutPanel";
             this.searchFlowLayoutPanel.Size = new System.Drawing.Size(231, 470);
@@ -384,6 +341,7 @@
             // 
             this.searchEndPanel.BackColor = System.Drawing.Color.Transparent;
             this.searchEndPanel.BackgroundImage = global::angeviergeCore.Properties.Resources.bg_av_3;
+            this.searchEndPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.searchEndPanel.Controls.Add(this.searchSumLabel);
             this.searchEndPanel.Location = new System.Drawing.Point(781, 138);
             this.searchEndPanel.Name = "searchEndPanel";
@@ -396,11 +354,11 @@
             this.searchSumLabel.AutoSize = true;
             this.searchSumLabel.BackColor = System.Drawing.Color.Transparent;
             this.searchSumLabel.ForeColor = System.Drawing.Color.White;
-            this.searchSumLabel.Location = new System.Drawing.Point(5, 5);
+            this.searchSumLabel.Location = new System.Drawing.Point(5, 3);
             this.searchSumLabel.Name = "searchSumLabel";
-            this.searchSumLabel.Size = new System.Drawing.Size(83, 12);
+            this.searchSumLabel.Size = new System.Drawing.Size(89, 12);
             this.searchSumLabel.TabIndex = 0;
-            this.searchSumLabel.Text = "搜索结果：800";
+            this.searchSumLabel.Text = "搜索结果：    ";
             // 
             // bgpicBox
             // 
@@ -415,10 +373,51 @@
             // 
             this.deckFlowlayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.deckFlowlayoutPanel.BackgroundImage = global::angeviergeCore.Properties.Resources.bg_av_3;
+            this.deckFlowlayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.deckFlowlayoutPanel.Location = new System.Drawing.Point(339, 138);
             this.deckFlowlayoutPanel.Name = "deckFlowlayoutPanel";
             this.deckFlowlayoutPanel.Size = new System.Drawing.Size(436, 498);
             this.deckFlowlayoutPanel.TabIndex = 12;
+            // 
+            // descriptionPanel
+            // 
+            this.descriptionPanel.BackColor = System.Drawing.Color.Transparent;
+            this.descriptionPanel.BackgroundImage = global::angeviergeCore.Properties.Resources.bg_av_4;
+            this.descriptionPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.descriptionPanel.Controls.Add(this.descriptionLable);
+            this.descriptionPanel.Controls.Add(this.effectLable);
+            this.descriptionPanel.Controls.Add(this.CardNameText);
+            this.descriptionPanel.Location = new System.Drawing.Point(0, 280);
+            this.descriptionPanel.Name = "descriptionPanel";
+            this.descriptionPanel.Size = new System.Drawing.Size(333, 356);
+            this.descriptionPanel.TabIndex = 14;
+            // 
+            // descriptionLable
+            // 
+            this.descriptionLable.Font = new System.Drawing.Font("楷体", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.descriptionLable.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.descriptionLable.Location = new System.Drawing.Point(18, 39);
+            this.descriptionLable.Name = "descriptionLable";
+            this.descriptionLable.Size = new System.Drawing.Size(298, 31);
+            this.descriptionLable.TabIndex = 2;
+            // 
+            // effectLable
+            // 
+            this.effectLable.BackColor = System.Drawing.Color.Transparent;
+            this.effectLable.Font = new System.Drawing.Font("黑体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.effectLable.Location = new System.Drawing.Point(17, 87);
+            this.effectLable.Name = "effectLable";
+            this.effectLable.Size = new System.Drawing.Size(300, 253);
+            this.effectLable.TabIndex = 1;
+            // 
+            // CardNameText
+            // 
+            this.CardNameText.BackColor = System.Drawing.Color.Transparent;
+            this.CardNameText.Font = new System.Drawing.Font("楷体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CardNameText.Location = new System.Drawing.Point(16, 11);
+            this.CardNameText.Name = "CardNameText";
+            this.CardNameText.Size = new System.Drawing.Size(301, 25);
+            this.CardNameText.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -427,25 +426,23 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::angeviergeCore.Properties.Resources.凉宫;
             this.ClientSize = new System.Drawing.Size(1024, 641);
+            this.Controls.Add(this.descriptionPanel);
             this.Controls.Add(this.deckFlowlayoutPanel);
             this.Controls.Add(this.searchEndPanel);
             this.Controls.Add(this.searchFlowLayoutPanel);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.deckPanel);
-            this.Controls.Add(this.cardTabControl);
             this.Controls.Add(this.cardFlame);
             this.Controls.Add(this.bgpicBox);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Angevierge";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cardFlame)).EndInit();
-            this.cardTabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.deckPanel.ResumeLayout(false);
             this.deckPanel.PerformLayout();
             this.searchPanel.ResumeLayout(false);
@@ -453,6 +450,7 @@
             this.searchEndPanel.ResumeLayout(false);
             this.searchEndPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bgpicBox)).EndInit();
+            this.descriptionPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -460,12 +458,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox cardFlame;
-        private System.Windows.Forms.TabControl cardTabControl;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.RichTextBox cardDescriptionText;
-        private System.Windows.Forms.TextBox CardNameText;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel deckPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button deckCleanButton;
@@ -493,6 +485,10 @@
         private System.Windows.Forms.Label searchSumLabel;
         private System.Windows.Forms.PictureBox bgpicBox;
         private System.Windows.Forms.FlowLayoutPanel deckFlowlayoutPanel;
+        private System.Windows.Forms.Panel descriptionPanel;
+        private System.Windows.Forms.Label CardNameText;
+        private System.Windows.Forms.Label effectLable;
+        private System.Windows.Forms.Label descriptionLable;
     }
 }
 

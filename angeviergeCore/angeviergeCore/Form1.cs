@@ -41,13 +41,15 @@ namespace angeviergeCore
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            hideSearchForm();
-            menuForm.MdiParent = this;
-            menuForm.StartPosition = FormStartPosition.Manual;
-            menuForm.Location = new Point(370, 200);
-            menuForm.BringToFront();
-            menuForm.Show();
-            SetParent((int)menuForm.Handle, (int)this.Handle);
+            /*  hideSearchForm();
+              menuForm.MdiParent = this;
+              menuForm.StartPosition = FormStartPosition.Manual;
+              menuForm.Location = new Point(370, 200);
+              menuForm.BringToFront();
+              menuForm.Show();
+              SetParent((int)menuForm.Handle, (int)this.Handle);*/
+            descriptionPanel.Parent = bgpicBox;
+            cardFlame.Parent = bgpicBox;
             searchFlowLayoutPanel.Parent = bgpicBox;
             searchEndPanel.Parent = bgpicBox;
             deckFlowlayoutPanel.Parent = bgpicBox;         
@@ -61,7 +63,7 @@ namespace angeviergeCore
             searchPanel.Hide();
             deckPanel.Hide();
             cardFlame.Hide();
-            cardTabControl.Hide();
+            searchFlowLayoutPanel.Hide();
             searchFlowLayoutPanel.Hide();
             searchEndPanel.Hide();
             deckFlowlayoutPanel.Hide();
@@ -71,7 +73,7 @@ namespace angeviergeCore
             searchPanel.Show();
             deckPanel.Show();
             cardFlame.Show();
-            cardTabControl.Show();
+            searchFlowLayoutPanel.Show();
             searchFlowLayoutPanel.Show();
             searchEndPanel.Show();
             deckFlowlayoutPanel.Show();
@@ -79,8 +81,8 @@ namespace angeviergeCore
 
         private void exitDeckButton_Click(object sender, EventArgs e)
         {
-            hideSearchForm();
-            menuForm.showForm();
+            /*hideSearchForm();
+            menuForm.showForm();*/
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -121,7 +123,7 @@ namespace angeviergeCore
 
         private void searchFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
-            if (mousetag ==true) {
+           /* if (mousetag ==true) {
                 ControlPaint.DrawBorder(e.Graphics,
              this.searchFlowLayoutPanel.ClientRectangle,
              Color.White,
@@ -136,7 +138,7 @@ namespace angeviergeCore
              Color.White,
              1,
              ButtonBorderStyle.Solid);
-            }
+            }*/
 
     }
 
@@ -313,17 +315,15 @@ namespace angeviergeCore
                 sb.Append(temp + Environment.NewLine);
             }
             string effectText = sb.ToString();
-            cardDescriptionText.Text = card.introduction+ Environment.NewLine + effectText;
-            cardDescriptionText.SelectionStart = card.introduction.Length - 1;
-            cardDescriptionText.SelectionLength = effectText.Length;
-            cardDescriptionText.SelectionFont = new System.Drawing.Font("黑体 ", 10.5F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point,
-                ((System.Byte)(0)));
+            descriptionLable.Text = card.introduction;
+            effectLable.Text = effectText;
+
         }
         public void deleteCardFromDeck(smallCard small)
         {
             deckFlowlayoutPanel.Controls.Remove(small);
-            nowDeck.RemoveAt(small.cardPosition);
+            Card c = co.selectFromTag(small.cardid);
+            nowDeck.Remove(c);
         }
 
         private void deckResetButton_Click(object sender, EventArgs e)
@@ -331,6 +331,7 @@ namespace angeviergeCore
             nowDeck = nowDeck.OrderBy(Card => Card.type).ToList();
             nowDeck = nowDeck.OrderBy(Card => Card.level).ToList();
             deckFlowlayoutPanel.Controls.Clear();
+            List<smallCard> slist = new List<smallCard>(54);
             foreach (Card card in nowDeck)
             {
                 smallCard small = new smallCard();
@@ -339,9 +340,9 @@ namespace angeviergeCore
                 small.cardPosition = nowDeck.Count;
                 small.owner = this;
                 small.cardid = card.cardTag;
-                Console.WriteLine(small.cardPosition);
-                deckFlowlayoutPanel.Controls.Add(small);
+                slist.Add(small);                
             }
+            deckFlowlayoutPanel.Controls.AddRange(slist.ToArray());
         }
 
         private void deckSaveButton_Click(object sender, EventArgs e)
