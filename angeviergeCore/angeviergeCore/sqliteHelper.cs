@@ -21,7 +21,7 @@ namespace angeviergeCore
         }
         public void createcardTable()
         {
-            string sql = "CREATE TABLE IF NOT EXISTS card(id integer primary key, name varchar(30), level INTERGER, power INTERGER,grand INTERGER,demage INTERGER,color INTERGER ,type INTERGER,single INTERGER,introduction  varchar(60),effect varchar(300),number varchar(10));";//建表语句  
+            string sql = "CREATE TABLE IF NOT EXISTS card(id integer primary key, name varchar(30), level INTERGER, power INTERGER,guard INTERGER,demage INTERGER,color INTERGER ,type INTERGER,single INTERGER,introduction  varchar(60),effect varchar(300),number varchar(10));";//建表语句  
             SQLiteCommand cmdCreateTable = new SQLiteCommand(sql, conn);
             cmdCreateTable.ExecuteNonQuery();
            
@@ -34,7 +34,7 @@ namespace angeviergeCore
                     + card[i].name + "', "
                     + card[i].level + ","
                     + card[i].power + ","
-                    + card[i].grand + ","
+                    + card[i].guard + ","
                     + card[i].demage + ","
                     + card[i].color + ","
                     + card[i].type + ","
@@ -45,35 +45,35 @@ namespace angeviergeCore
                 cmdInsert.ExecuteNonQuery();
             }
         }
-        public List<Card> selectCard(int color,int level, int type,int single,string keyword) {
+        public List<Card> selectCards(string sql) {
             List<Card> cardlist = new List<Card>(800);
-            StringBuilder sb = new StringBuilder("select * from card where");
-            if(color != -1) { sb.Append(" color=" + color+" and "); }
-            if (type != -1) { sb.Append(" type=" + type + " and "); }
-            if (single != -1) { sb.Append(" single=" + single + " and "); }
-            if (keyword != "")
-            {
-                sb.Append("name like %" + keyword + "% or introduction like %" + keyword + "% or effect like %"
-                            + keyword + "% or number like %" + keyword + "%");
-            }
-            else {
-                sb.Remove(sb.Length-5,5);
-            }
-            string sql = sb.ToString();
-            Console.WriteLine(sql);
             SQLiteCommand cmdQ = new SQLiteCommand(sql, conn);
-
-            SQLiteDataReader reader = cmdQ.ExecuteReader();
-
-            while (reader.Read())
-            {
-                Card card = new Card(reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetInt32(8), reader.GetString(9), reader.GetString(10), reader.GetString(11));
-                cardlist.Add(card);
-            }            
-            return cardlist;
+            try {
+                SQLiteDataReader reader = cmdQ.ExecuteReader();
+                while (reader.Read())
+                {
+                    Card card = new Card(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetInt32(8), reader.GetString(9), reader.GetString(10), reader.GetString(11));
+                    cardlist.Add(card);
+                }
+                return cardlist;
+            }
+            catch { return cardlist; }
+            
         }
         public void closeCon() {
             conn.Close();
+        }
+        public Card selectCard(string sql)
+        {
+            SQLiteCommand cmdQ = new SQLiteCommand(sql, conn);
+
+            SQLiteDataReader reader = cmdQ.ExecuteReader();
+            while (reader.Read())
+            {
+                Card card = new Card(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetInt32(8), reader.GetString(9), reader.GetString(10), reader.GetString(11));
+                return card;
+            }
+            return null;
         }
     }
 }

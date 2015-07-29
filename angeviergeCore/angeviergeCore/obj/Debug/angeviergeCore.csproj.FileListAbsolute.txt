@@ -34,3 +34,4 @@ C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore
 C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.csproj.GenerateResource.Cache
 C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.exe
 C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.pdb
+C:\Users\Joker\Documents\GitHub\myspaceFor20150723\angeviergeCore\angeviergeCore\obj\Debug\angeviergeCore.smallCard.resources

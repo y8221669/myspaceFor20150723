@@ -11,10 +11,11 @@ namespace angeviergeCore
     enum cardSingle {omege ,sigma ,turnA ,noSingle };
     class Card
     {
+        public int cardTag;
         public string name;
         public int level;
         public int power;
-        public int grand;
+        public int guard;
         public int demage;
         public int color;
         public int type;
@@ -22,11 +23,12 @@ namespace angeviergeCore
         public string introduction;
         public string effect;
         public string number;
-        public Card(string name,int level,int power,int grand,int demage,int color,int type,int single,string introduction,string effect,string number) {
+        public Card(int tag, string name,int level,int power,int guard,int demage,int color,int type,int single,string introduction,string effect,string number) {
+            cardTag = tag;
             this.name = name;
             this.level = level;
             this.power = power;
-            this.grand = grand;
+            this.guard = guard;
             this.demage = demage;
             this.color = color;
             this.type = type;

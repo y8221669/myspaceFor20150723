@@ -56,6 +56,7 @@ namespace angeviergeCore
             this.panel1.Size = new System.Drawing.Size(192, 64);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
@@ -107,6 +108,7 @@ namespace angeviergeCore
             // cardPic
             // 
             this.cardPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cardPic.Enabled = false;
             this.cardPic.Image = ((System.Drawing.Image)(resources.GetObject("cardPic.Image")));
             this.cardPic.InitialImage = null;
             this.cardPic.Location = new System.Drawing.Point(3, 1);
@@ -118,11 +120,8 @@ namespace angeviergeCore
             // 
             // CardInfoPanel
             // 
-          //  this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-          //  this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel1);
-            this.Name = "CardInfoPanel";
             this.Size = new System.Drawing.Size(194, 68);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -61,6 +61,7 @@
             this.searchEndPanel = new System.Windows.Forms.Panel();
             this.searchSumLabel = new System.Windows.Forms.Label();
             this.bgpicBox = new System.Windows.Forms.PictureBox();
+            this.deckFlowlayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.cardFlame)).BeginInit();
             this.cardTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -72,9 +73,12 @@
             // 
             // cardFlame
             // 
+            this.cardFlame.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cardFlame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cardFlame.Location = new System.Drawing.Point(0, 0);
             this.cardFlame.Name = "cardFlame";
             this.cardFlame.Size = new System.Drawing.Size(200, 274);
+            this.cardFlame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.cardFlame.TabIndex = 1;
             this.cardFlame.TabStop = false;
             // 
@@ -104,6 +108,7 @@
             // 
             // cardDescriptionText
             // 
+            this.cardDescriptionText.Font = new System.Drawing.Font("楷体", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cardDescriptionText.Location = new System.Drawing.Point(8, 54);
             this.cardDescriptionText.Name = "cardDescriptionText";
             this.cardDescriptionText.ReadOnly = true;
@@ -174,6 +179,7 @@
             this.deckResetButton.TabIndex = 7;
             this.deckResetButton.Text = "排序";
             this.deckResetButton.UseVisualStyleBackColor = true;
+            this.deckResetButton.Click += new System.EventHandler(this.deckResetButton_Click);
             // 
             // deckUpsetButton
             // 
@@ -203,6 +209,7 @@
             this.deckResaveButtom.TabIndex = 4;
             this.deckResaveButtom.Text = "另存";
             this.deckResaveButtom.UseVisualStyleBackColor = true;
+            this.deckResaveButtom.Click += new System.EventHandler(this.deckResaveButtom_Click);
             // 
             // deckSaveButton
             // 
@@ -212,6 +219,7 @@
             this.deckSaveButton.TabIndex = 3;
             this.deckSaveButton.Text = "保存";
             this.deckSaveButton.UseVisualStyleBackColor = true;
+            this.deckSaveButton.Click += new System.EventHandler(this.deckSaveButton_Click);
             // 
             // deckNameBox
             // 
@@ -228,6 +236,7 @@
             this.deckComboBox.Name = "deckComboBox";
             this.deckComboBox.Size = new System.Drawing.Size(121, 20);
             this.deckComboBox.TabIndex = 1;
+            this.deckComboBox.SelectedIndexChanged += new System.EventHandler(this.deckComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -333,13 +342,6 @@
             // 
             this.levelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.levelComboBox.FormattingEnabled = true;
-            this.levelComboBox.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
             this.levelComboBox.Location = new System.Drawing.Point(245, 12);
             this.levelComboBox.Name = "levelComboBox";
             this.levelComboBox.Size = new System.Drawing.Size(96, 20);
@@ -409,6 +411,15 @@
             this.bgpicBox.TabIndex = 10;
             this.bgpicBox.TabStop = false;
             // 
+            // deckFlowlayoutPanel
+            // 
+            this.deckFlowlayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.deckFlowlayoutPanel.BackgroundImage = global::angeviergeCore.Properties.Resources.bg_av_3;
+            this.deckFlowlayoutPanel.Location = new System.Drawing.Point(339, 138);
+            this.deckFlowlayoutPanel.Name = "deckFlowlayoutPanel";
+            this.deckFlowlayoutPanel.Size = new System.Drawing.Size(436, 498);
+            this.deckFlowlayoutPanel.TabIndex = 12;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -416,6 +427,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::angeviergeCore.Properties.Resources.凉宫;
             this.ClientSize = new System.Drawing.Size(1024, 641);
+            this.Controls.Add(this.deckFlowlayoutPanel);
             this.Controls.Add(this.searchEndPanel);
             this.Controls.Add(this.searchFlowLayoutPanel);
             this.Controls.Add(this.searchPanel);
@@ -480,6 +492,7 @@
         private System.Windows.Forms.Panel searchEndPanel;
         private System.Windows.Forms.Label searchSumLabel;
         private System.Windows.Forms.PictureBox bgpicBox;
+        private System.Windows.Forms.FlowLayoutPanel deckFlowlayoutPanel;
     }
 }
 
